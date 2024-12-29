@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --cyber-black: #000000;
+  --cyber-green: #00ff00;
+  --cyber-dark-green: #006400;
+  --cyber-blue: #00ffff;
+  --cyber-pink: #ff00ff;
+}
+
+body {
+  background-image: linear-gradient(to top, #015801, #000000 40%);
+  color: var(--cyber-green);
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.cyber-container {
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.cyber-container.loaded {
+  opacity: 1;
+}
+
+
+.cyber-main {
+  flex: 1;
+  display: flex;
+  margin:auto;
+  padding: 10px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.cyber-title {
+  font-size: 2.5rem;
+  /* margin-bottom: 0.5rem; */
+  color:white;
+  margin-bottom: 0;
+}
+
+.cyber-subtitle {
+  color: var(--cyber-dark-green);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cyber-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.cyber-form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.cyber-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--cyber-green);
+}
+
+.cyber-input,
+.cyber-select {
+  width: 100%;
+  padding:0.75rem;
+  background-color: black;
+  border: 1px solid green;  
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+  border-radius: 4px;
+  color: var(--cyber-green);
+  font-family: 'Orbitron', sans-serif;
+  padding : 20px;
+  transition: all 0.3s ease;
+}
+.cyber-select{
+  width:445px;
+}
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 var(--cyber-blue), -0.05em -0.025em 0 var(--cyber-pink),
+      -0.025em 0.05em 0 var(--cyber-green);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 var(--cyber-blue), -0.05em -0.025em 0 var(--cyber-pink),
+      -0.025em 0.05em 0 var(--cyber-green);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 var(--cyber-blue), 0.025em 0.025em 0 var(--cyber-pink),
+      -0.05em -0.05em 0 var(--cyber-green);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 var(--cyber-blue), 0.025em 0.025em 0 var(--cyber-pink),
+      -0.05em -0.05em 0 var(--cyber-green);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 var(--cyber-blue), 0.05em 0 0 var(--cyber-pink),
+      0 -0.05em 0 var(--cyber-green);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 var(--cyber-blue), 0.05em 0 0 var(--cyber-pink),
+      0 -0.05em 0 var(--cyber-green);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 var(--cyber-blue), -0.025em -0.025em 0 var(--cyber-pink),
+      -0.025em -0.05em 0 var(--cyber-green);
+  }
+}
+
+
+.cyber-input:focus,
+.cyber-select:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--cyber-green);
+}
+
+.cyber-input::placeholder {
+  color: rgba(0, 255, 0, 0.5);
+}
+
+.cyber-submit-button {
+  width:40%;
+  padding: 15px 32px;
+  padding-left: 0.75rem;
+  margin-left:30%;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-top:5rem;
+  align-items: center;
+  background-color: var(--cyber-green);
+  color: var(--cyber-black);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(0% 0%, 90% 0%, 100% 40%, 100% 0%, 100% 100%, 10% 100%, 0% 70%);
+}
+
+.cyber-submit-button:hover {
+  background-color: var(--cyber-blue);
+  box-shadow: 0 0 20px var(--cyber-blue);
+}
+
+
+.cyber-button-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--cyber-pink);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.cyber-submit-button:hover .cyber-button-glitch {
+  transform: translateX(100%);
+}
+
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
