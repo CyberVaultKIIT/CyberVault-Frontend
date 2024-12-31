@@ -31,6 +31,10 @@ html {
     padding: 0;       
     margin: 0;       
   }
+
+  ul li{
+    align-items: flex-start;
+  }
   
   ul li a {
     text-decoration: none; 

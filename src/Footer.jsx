@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.scss"; 
+import "./Footer.scss"; 
 import backgroundImage from './assets/Polygon.png'; 
 
 const Footer = () => {
