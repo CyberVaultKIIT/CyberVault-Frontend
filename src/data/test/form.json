@@ -1,0 +1,83 @@
+{
+    "infoObject": {
+        "formTitle": "User Registration Form",
+        "description": "This form collects user information for registration purposes.",
+        "prosteImage": {
+            "image1": "https://example.com/image1.jpg",
+            "image2": "https://example.com/image2.jpg"
+        }
+    },
+    "controllerObject": {
+        "createdBy": "admin",
+        "lastUpdated": "2025-01-01T12:00:00Z"
+    },
+    "topicObject": {
+        "topic": "User Information",
+        "subTopic": "Personal Details"
+    },
+    "sections": [
+        {
+            "sectionTitle": "Personal Information",
+            "fields": [
+                {
+                    "fieldName": "fullName",
+                    "type": "text",
+                    "label": "Full Name",
+                    "placeholder": "Enter your full name",
+                    "required": true,
+                    "validation": {
+                        "minLength": 3,
+                        "maxLength": 50
+                    }
+                },
+                {
+                    "fieldName": "email",
+                    "type": "text",
+                    "label": "Email Address",
+                    "placeholder": "Enter your email",
+                    "required": true,
+                    "validation": {
+                        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+                    }
+                }
+            ]
+        },
+        {
+            "sectionTitle": "Preferences",
+            "fields": [
+                {
+                    "fieldName": "preferredContact",
+                    "type": "select",
+                    "label": "Preferred Contact Method",
+                    "options": [
+                        "Email",
+                        "Phone",
+                        "Text Message"
+                    ],
+                    "required": true
+                },
+                {
+                    "fieldName": "receiveUpdates",
+                    "type": "checkbox",
+                    "label": "Receive Updates",
+                    "options": [
+                        "Newsletters",
+                        "Promotions",
+                        "Event Invitations"
+                    ],
+                    "validation": {
+                        "maximumSelect" : 2
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "requiredSection": [
+        "Personal Information",
+        "Preferences"
+    ],
+    "optional": {
+        "notes": "Optional remarks or additional information can be provided here."
+    }
+}
