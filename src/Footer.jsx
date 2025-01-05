@@ -23,13 +23,12 @@ const Footer = () => {
       <div className="footer-content">
         <h1 className="footer-title">CYBERVAULT</h1>
         <div className="footer-sections">
-          <div className="social-links">
+          
+          <div className="site-links">
             <ul>
-              <li><a href="https://x.com/CyberVault_KIIT" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
-              <li><a href="https://www.instagram.com/cybervault_kiit/#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="https://www.linkedin.com/company/cybervault-kiit/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li>General inquiries</li>
-              <li>Email ID</li>
+              <li>Home</li>
+              <li>Blog</li>
+              <li>Contact us</li>
             </ul>
           </div>
           <div className="connect">
@@ -39,11 +38,13 @@ const Footer = () => {
               <button>→</button>
             </div>
           </div>
-          <div className="site-links">
+          <div className="social-links">
             <ul>
-              <li>Home</li>
-              <li>Blog</li>
-              <li>Contact us</li>
+              <li><a href="https://x.com/CyberVault_KIIT" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+              <li><a href="https://www.instagram.com/cybervault_kiit/#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/company/cybervault-kiit/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li>General inquiries</li>
+              <li>Email ID</li>
             </ul>
           </div>
         </div>
