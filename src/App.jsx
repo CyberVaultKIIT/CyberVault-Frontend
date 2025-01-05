@@ -1,10 +1,8 @@
-function App() {
+import RegistrationForm from './components/RegistrationForm'
 
-  return (
-    <>
-     <h1>CyberVault Frontend</h1>
-    </>
-  )
-}
+function App() {
+  return(
+  <RegistrationForm/>
+)}
 
 export default App

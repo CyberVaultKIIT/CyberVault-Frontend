@@ -1,0 +1,138 @@
+{
+    "infoObject": {
+        "formTitle": "User Registration Form",
+        "description": "This form collects user information for registration purposes.",
+        "prosteImage": {
+            "image1": "https://example.com/image1.jpg",
+            "image2": "https://example.com/image2.jpg"
+        }
+    },
+    "controllerObject": {
+        "createdBy": "admin",
+        "lastUpdated": "2025-01-01T12:00:00Z"
+    },
+    "topicObject": {
+        "topic": "User Information",
+        "subTopic": "Personal Details"
+    },
+    "sections": [
+        {
+            "sectionTitle": "Personal Information",
+            "fields": [
+                {
+                  "fieldName": "fullName",
+                  "type": "text",
+                  "label": "Full Name",
+                  "placeholder": "Enter your name",
+                  "required": true,
+                  "validation": {
+                    "minLength": 3,
+                    "maxLength": 50,
+                    "pattern": "^[a-zA-Z\\s]+$",
+                    "feedback": "Please enter a valid name."
+                  }
+                },
+                {
+                  "fieldName": "rollNumber",
+                  "type": "text",
+                  "label": "Roll Number",
+                  "placeholder": "Enter your roll number",
+                  "required": true,
+                  "validation": {
+                    "pattern": "^[0-9]+$",
+                    "feedback": "Roll number must contain only digits"
+                  }
+                },
+                {
+                  "fieldName": "kiitEmailId",
+                  "type": "text",
+                  "label": "KIIT Email ID",
+                  "placeholder": "Enter your KIIT email",
+                  "required": true,
+                  "validation": {
+                    "pattern": "^[a-zA-Z0-9._%+-]+@kiit.ac.in$",
+                    "feedback": "Email must be a valid KIIT email address (e.g., 2105043@kiit.ac.in)."
+                  }
+                },
+                {
+                  "fieldName": "personalEmailId",
+                  "type": "text",
+                  "label": "Personal Email ID",
+                  "placeholder": "Enter your personal email",
+                  "required": true,
+                  "validation": {
+                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+                    "feedback": "Enter a valid email address."
+                  }
+                },
+                {
+                  "fieldName": "gender",
+                  "type": "select",
+                  "label": "Gender",
+                  "options": ["Male", "Female", "Other", "Prefer not to say"],
+                  "required": true,
+                  "feedback": "Please select your gender."
+                },
+                {
+                  "fieldName": "mobileNumber",
+                  "type": "text",
+                  "label": "Mobile Number",
+                  "placeholder": "Enter your mobile number",
+                  "required": true,
+                  "validation": {
+                    "pattern": "^[0-9]{10}$",
+                    "feedback": "Mobile number must be exactly 10 digits."
+                  }
+                },
+                {
+                  "fieldName": "teamSize",
+                  "type": "increment-decrement",
+                  "label": "No. of Participants",
+                  "required": true,
+                  "validation": {
+                    "min": 1,
+                    "max": 10,
+                    "feedback": "Team size must be between <min> and <max> participants."
+                  }
+                }
+              ]
+        },
+        {
+            "sectionTitle": "Preferences",
+            "fields": [
+                {
+                    "fieldName": "preferredContact",
+                    "type": "select",
+                    "label": "Preferred Contact Method",
+                    "options": [
+                        "Email",
+                        "Phone",
+                        "Text Message"
+                    ],
+                    "required": true
+                },
+                {
+                    "fieldName": "receiveUpdates",
+                    "type": "checkbox",
+                    "label": "Receive Updates",
+                    "options": [
+                        "Newsletters",
+                        "Promotions",
+                        "Event Invitations"
+                    ],
+                    "validation": {
+                        "maximumSelect" : 2
+                    },
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "requiredSection": [
+        "Personal Information",
+        "Preferences"
+    ],
+    "optional": {
+        "notes": "Optional remarks or additional information can be provided here."
+    }
+}
