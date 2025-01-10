@@ -8,6 +8,7 @@ import Hero from "./components/Hero/Hero"
 import NotFound from "./components/NotFound/notFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from './components/About/about.jsx';
+// import RegistrationForm from './components/RegistrationForm/RegistrationForm.jsx';
 
 function App() {
   return (

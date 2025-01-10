@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --cyber-black: #000000;
+  --cyber-green: #00ff00;
+  --cyber-dark-green: #006400;
+  --cyber-blue: #00ffff;
+  --cyber-pink: #ff00ff;
+}
+
+body {
+  background-image: linear-gradient(to top, #015801, #000000 40%);
+  color: var(--cyber-green);
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.cybercontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+}
+
+.cybertitle {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cybersubtitle {
+  color: var(--cyber-dark-green);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cyberformgroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.cybererror{
+  margin-right: auto;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  padding-bottom: 0px;
+}
+
+.cyberformgroup label {
+  display: block;
+  margin: 0;
+  padding: 0;
+  margin-right: auto;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--cyber-green);
+}
+
+.cyberinput {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: black;
+  border: 1px solid green;
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cyberselect{
+  width: 100%;
+  padding: 1.2rem;
+  background-color: black;
+  border: 1px solid green;
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("https://img.icons8.com/?size=100&id=2GaoSkGKgvQZ&format=png&color=006400");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 1.5rem auto;
+}
+
+.cyberselect {
+  width: 100%;
+}
+
+.incrementDecrementWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.cyberIncrementDecrementInput {
+  width: 100%;
+  text-align: center;
+  padding: 1.2rem;
+  background-color: black;
+  border: 1px solid green;
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  margin-right: 10px;
+  -moz-appearance: textfield; 
+  -webkit-appearance: none; 
+  appearance: none; 
+}
+
+.cyberIncrementDecrementInput::-webkit-inner-spin-button,
+.cyberIncrementDecrementInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.incrementButton, .decrementButton {
+  width: 6rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0;
+  opacity: 0.8;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.incrementButton:disabled, .decrementButton:disabled {
+  background-color: var(--cyber-dark-green);
+  color: black;
+  cursor: not-allowed;
+}
+
+
+.cyberinput:focus,
+.cyberselect:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--cyber-green);
+}
+
+.cyberinput::placeholder {
+  color: rgba(0, 255, 0, 0.5);
+}
+
+.cyberIncrementDecrementInput:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--cyber-green);
+}
+
+.cyberIncrementDecrementInput::placeholder {
+  color: rgba(0, 255, 0, 0.5);
+}
+
+.cybersubmitbutton {
+  padding: 15px 32px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: var(--cyber-green);
+  color: var(--cyber-black);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    0% 0%,
+    90% 0%,
+    100% 40%,
+    100% 0%,
+    100% 100%,
+    10% 100%,
+    0% 70%
+  );
+  margin-left: 20px;
+}
+
+.cybersubmitbutton:hover {
+  background-color: var(--cyber-blue);
+  box-shadow: 0 0 20px var(--cyber-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cybertitle {
+    font-size: 2rem;
+  }
+
+  .cybersubmitbutton {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cybertitle {
+    font-size: 1.8rem;
+  }
+
+  .cybersubtitle {
+    font-size: 1rem;
+  }
+
+  .cyberinput,
+  .cyberselect {
+    padding: 0.75rem;
+  }
+
+  .cyberIncrementDecrementInput{
+    padding: 0.75rem;
+  }
+
+  .cyberselect{
+    width: 100%;
+  }
+
+  .cyberinput {
+    width: 100%;
+  }
+
+  .cybersubmitbutton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+
+    clip-path: none;
+    border-radius: 8px;
+  }
+
+  .incrementButton, .decrementButton {
+    width: 4rem;
+    height: 2.5rem;
+  }
+}
