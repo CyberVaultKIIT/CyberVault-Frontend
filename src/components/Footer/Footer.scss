@@ -5,25 +5,45 @@ html {
   scroll-behavior: smooth;
 }
 
-.footer {
-  background-image: url('./assets/images/Polygon.png');
-  color: white;
-  text-align: center;
-  padding: 20px;
-  position: relative;
+// .footer {
+//   background-image: url('./assets/images/Polygon.png');
+//   color: white;
+//   text-align: center;
+//   padding: 20px;
+//   position: relative;
+// }
+
+.footer-polygon {
+  margin-top: 40px;
+  width: 100%;
+  height: 500px; 
+  position: absolute;
+  background-image: url('../../assets/images/Polygon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+.footer-title-container {
+  text-align: center;
+  background-color: #000000; // Match the footer background
+}
+
 
 .footer-title {
   font-family: 'Chakra Petch', sans-serif;
-  font-size: 15vw;
+  font-size: clamp(10rem, 15vw, 15rem);
   font-weight: bold;
   width: 100%;
-  margin: 0 auto;
   text-align: center;
   background: linear-gradient(to bottom, #ffffff, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  white-space: nowrap; 
+  white-space: normal;
+}
+
+.footer-content{
+  margin-top: 200px;
 }
 
 ul {
