@@ -87,6 +87,7 @@
     rgba(35, 51, 35, 0.9) 29.17%,
     rgba(1, 60, 1, 0.9) 100%
   );
+  width: 100%;
   border-radius: 2.5rem;
   display: flex;
   justify-content: center;
@@ -124,7 +125,6 @@
 .cardSection {
   display: flex;
   margin-top: 5rem;
-  gap: 10px;
 }
 
 .infoCard {
@@ -206,7 +206,8 @@
   }
 
   .infoCard {
-    max-width: 90%;
+    flex: 1 1 45%;
+    max-width: 100%;
   }
 
   .layout1,
@@ -247,29 +248,17 @@
   .cardSection {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 10rem;
   }
 
   .infoCard {
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
   }
 
   .layout1,
   .layout2,
   .layout3 {
-    filter: blur(5em);
-  }
-
-  .layout1 {
-    width: 25%;
-    height: 40%;
-    top: 1em;
-  }
-
-  .layout2 {
-    width: 25%;
-    height: 30%;
-    top: 3em;
+    display: none;
   }
 }
