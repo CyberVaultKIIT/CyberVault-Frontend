@@ -1,6 +1,11 @@
 @import url('https://fonts.cdnfonts.com/css/airnt');
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap');
 
+.hero {
+  border: 5px white !important;
+  max-width: 90%;
+}
+
 .aboutPage {
   background: black;
   color: white;
@@ -64,21 +69,21 @@
   padding-bottom: 1rem;
   font-weight: 700;
   font-size: 3.5rem;
-  margin: 2rem;
-  margin-bottom: 5rem;
+  margin: -1rem;
+  margin-bottom: 0rem;
   text-align: center;
 }
 
 .headerTitle {
   font-family: 'Chakra Petch', sans-serif;
   font-weight: 700;
-  font-size: 3.5rem;
+  font-size: 1.5em;
   line-height: 1.2;
   letter-spacing: 4%;
 }
 
 .main {
-  width: 90%;
+  width: 98%;
 }
 
 .founderSection {
@@ -87,7 +92,7 @@
     rgba(35, 51, 35, 0.9) 29.17%,
     rgba(1, 60, 1, 0.9) 100%
   );
-  width: 100%;
+
   border-radius: 2.5rem;
   display: flex;
   justify-content: center;
@@ -95,7 +100,7 @@
   flex-direction: column;
   margin-bottom: 8rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
-
+  height: 42rem;
   box-shadow: inset 0 0 3rem rgba(255, 255, 255, 0.5);
 
   padding: 4rem;
@@ -106,6 +111,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
+  margin: 0rem;
   padding-top: 1rem;
 }
 
@@ -114,12 +120,15 @@
   width: 100%;
   max-width: 500px;
   border-radius: 61px 61px 0px 0px;
+  margin-top: 4rem;
 }
 
 .founderDescription {
   width: 80%;
-  text-align: left;
+  text-align: justify;
   font-size: 1.5rem;
+  color: white;
+  margin-top: 0.5rem;
 }
 
 .cardSection {
@@ -131,8 +140,8 @@
   background: linear-gradient(180deg, #233323e5 29.17%, #013c01e5 100%);
   color: white;
   padding: 2rem;
-  width: 100%;
-  max-width: 45%;
+  // width: 100%;
+  max-width: 46%;
   flex: 1 1 45%;
   border-radius: 2rem;
   text-align: center;
@@ -141,10 +150,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 45rem;
 }
 
 .cardImage {
   width: 40%;
+  margin-top: 3rem;
   max-width: 200px;
   height: auto;
   border-radius: 1rem;
@@ -155,28 +166,32 @@
 }
 
 .cardTitle {
-  padding: 2rem;
+  padding: 0rem;
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
+  margin: 1rem;
 }
 
 .cardContent {
   font-size: 1.25rem;
-  text-align: center;
+  text-align: justify;
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
+  color: white;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 900px) {
   .cardSection {
     flex-direction: row;
     justify-content: space-between;
   }
 
   .infoCard {
-    max-width: 47%;
+    max-width: 42%;
   }
 
   .layout1 {
@@ -195,19 +210,74 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 899px) {
+  .founderDescription {
+    font-size: 1em;
+    width: 100%;
+    padding-bottom: -0rem;
+    margin-bottom: -3rem;
+  }
+  .founderSection {
+    margin-top: 0rem;
+    padding-top: 1rem;
+    font-size: 1rem;
+    text-align: justify;
+    flex-grow: 1;
+    border-radius: 4em;
+
+    color: white;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    box-shadow: inset 0 0 1rem rgba(255, 255, 255, 0.5);
+    height: 35rem;
+    margin-bottom: 5em;
+    padding-bottom: 0em;
+  }
+  .header {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .main {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .founderImage {
+    max-width: 80%;
+    border-radius: 26px 26px 0px 0px;
+    margin-top: -4rem;
+  }
+  .founderTitle {
+    font-size: 1.5em;
+  }
+  .headerTitle {
+    font-size: 1.5em;
+  }
+
   .cardSection {
     flex-direction: column;
     justify-content: center;
-    gap: 10rem;
-  }
-  .headerTitle {
-    font-size: 2em;
+    gap: 5rem;
+    max-width: 100%;
   }
 
   .infoCard {
-    flex: 1 1 45%;
+    // width: 85%;
     max-width: 100%;
+    border-radius: 4em;
+  }
+  .cardImage {
+    margin-top: 0px;
+  }
+  .cardTitle {
+    font-size: 1.5em;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+  }
+  .cardContent {
+    font-size: 1em;
+    margin-bottom: -3rem;
   }
 
   .layout1,
@@ -233,29 +303,74 @@
 }
 
 @media (max-width: 768px) {
+  .founderDescription {
+    font-size: 1em;
+    width: 100%;
+    padding-bottom: -0rem;
+    margin-bottom: -3rem;
+  }
+  .founderSection {
+    margin-top: 0rem;
+    padding-top: 1rem;
+    font-size: 1rem;
+    text-align: justify;
+    flex-grow: 1;
+    border-radius: 4em;
+
+    color: white;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    box-shadow: inset 0 0 1rem rgba(255, 255, 255, 0.5);
+    height: 35rem;
+    margin-bottom: 5em;
+    padding-bottom: 0em;
+  }
   .header {
-    font-size: 2rem;
-    padding-bottom: 2rem;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
   }
   .main {
     width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
   }
-
+  .founderImage {
+    max-width: 80%;
+    border-radius: 26px 26px 0px 0px;
+    margin-top: -4rem;
+  }
+  .founderTitle {
+    font-size: 1.5em;
+  }
   .headerTitle {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   .cardSection {
     flex-direction: column;
     justify-content: center;
-    gap: 10rem;
-  }
-
-  .infoCard {
-    width: 100%;
+    gap: 5rem;
     max-width: 100%;
   }
 
+  .infoCard {
+    // width: 85%;
+    max-width: 100%;
+    border-radius: 4em;
+  }
+  .cardImage {
+    margin-top: 0px;
+  }
+  .cardTitle {
+    font-size: 1.5em;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+  }
+  .cardContent {
+    font-size: 1em;
+    margin-bottom: -3rem;
+  }
   .layout1,
   .layout2,
   .layout3 {
