@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import NotFound from "./components/NotFound/notFound";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Home from './pages/home/home.jsx';
+import Team from './pages/team/Team.jsx';
 const Layout = () => {
   return (
     <div>
@@ -23,7 +24,7 @@ function App() {
             <Home />
           }/>
           <Route path="/team" element={
-            <NotFound />
+            <Team/>
           }/>
 
           <Route path="*" element={<NotFound />} />

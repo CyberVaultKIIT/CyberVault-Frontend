@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap');
+
+.heading1 {    
+    font-family: 'Chakra Petch', sans-serif;
+    margin: 0; 
+    background-color: #000; 
+    color: #fff;   
+    font-size: 4vw;
+    text-align: center; 
+}
+
+.heading2 {
+    font-family: 'Chakra Petch', sans-serif;
+    margin: 0; 
+    color: #fff;   
+    font-size: 2.5vw; /* Adjusts according to screen width */
+    text-align: center; 
+}
+
+.first { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    width: 75%;
+    margin: 0 auto;
+    height: 10rem;
+    line-height: 5rem;
+}
+
+.second {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    height: 15rem;
+    padding-bottom: 0rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+.one {
+    height: 100%;
+    width: 15rem;
+    align-items: center;
+    position: relative;
+}
+
+.text1 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    padding-bottom: 0px;
+    font-weight: 600;
+}
+
+
+
+.third {
+    display: flex;
+    justify-content: end;
+    height: 3.5rem;
+    width: 100%;
+    margin-bottom: 8rem;
+}
+
+.sort {
+    color: black;
+    background-color: #00B508;
+    font-weight: 600;
+    border: 0px;
+    height: 100%;
+    font-size: 1.5rem;
+    width: 10em;
+    margin-right: 4rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.sort:hover {
+    background-color: #008f06;
+}
+
+.down {
+    height: 100%;
+    // background-image: url('../../../src/assets/images/polygon.png');
+    border: 2px solid black;
+    background-size: 85%; 
+    background-position: center; 
+}
+
+.five {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); /* Define columns */
+    gap: 1rem; /* Adjust gap between grid items */;
+}
+
+.title {
+    font-family: 'Chakra Petch', sans-serif;
+    color: #fff;
+    text-decoration: underline;
+    margin-bottom: 3rem;
+    padding-bottom: 0px;
+    font-size: 3rem;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.memberImage {
+    width: 95%;
+    height: auto;
+    border-radius: 2%;
+    margin-top: 0px;
+    margin-bottom: 1rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.name {
+    font-family: 'Chakra Petch', sans-serif;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.six {
+    margin-bottom: 2rem;
+}
+
+.fourth{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.teamName{
+    margin-top:2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    img{
+        height: 17vw;
+        width: 17vw;
+        padding: 5px;
+        background-color: #00B508;
+        border-radius: 2rem;
+    }
+}
+
+@media (max-width: 768px) { 
+    h1 {
+        font-size: 5vw;
+    }
+    h3 {
+        font-size: 3vw;
+    }
+    .first {
+        width: 90%;
+        height: 6rem;
+        line-height: 3rem;
+    }
+    .second {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: -3rem;
+        margin-bottom: 0rem;
+        padding-top: 0rem;
+    }
+   
+    .text1{
+        font-size: 1rem;
+    }
+    .third{
+        margin-top: 0rem;
+        display: flex;
+        justify-content:left;
+        margin-left: 0.5rem;
+        height: 2rem;
+        width: 20rem;
+        margin-bottom: 2rem;
+
+    }
+    .one {
+        width: 10rem;
+        margin-bottom: 0rem;
+        height: 7rem;
+       
+    }
+    .sort{
+        font-size: 1rem;
+        font-weight: 600;
+   
+    }
+    .title {
+        font-size: 2.5rem;
+        align-items: center;
+        text-align: center;
+    }
+    .member{
+        margin-bottom: 0rem;
+    }
+    .name{
+        margin-bottom: 0rem;
+        padding-bottom: 1rem;
+    }
+}
