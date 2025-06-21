@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../styles/SignUp.module.scss";
 import { useForm } from "react-hook-form";
 import robotImage from "../../assets/images/robotNew.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import api from "../../services/api";
 
 const SignUp = () => {
   const {
@@ -14,6 +15,9 @@ const SignUp = () => {
   } = useForm();
 
   const [passwordMatchError, setPasswordMatchError] = useState("");
+  const [serverError, setServerError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
 
   const password = watch("password");
 
@@ -27,11 +31,32 @@ const SignUp = () => {
     }
   };
 
-  const onSubmit = (data) => {
-    console.log("Submitted Data:", data);
-    };
-    
-    const navigate = useNavigate();
+  const onSubmit = async (data) => {
+    setServerError("");
+    setSuccessMessage("");
+    try {
+      // Map frontend fields to backend expected fields
+      const payload = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        phoneNumber: data.phone,
+        roll: data.roll,
+      };
+      const response = await api.post("/api/auth/register", payload);
+      localStorage.setItem("userData", JSON.stringify(response.data.data));
+      localStorage.setItem("token", response.data.token);
+      setSuccessMessage("Registration successful! Redirecting to login...");
+      setTimeout(() => navigate("/login"), 1500);
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.message) {
+        setServerError(error.response.data.message);
+      } else {
+        setServerError("An error occurred. Please try again.");
+      }
+    }
+  };
+
   const handleLogin = () => navigate("/login");
 
   return (
@@ -63,6 +88,28 @@ const SignUp = () => {
             />
             {errors.name && (
               <p className={styles.cyberError}>{errors.name.message}</p>
+            )}
+          </div>
+
+          <div className={styles.cyberFormGroup}>
+            <label htmlFor="rollField" className="cyber-label">
+              ROLL NUMBER
+            </label>
+            <input
+              type="text"
+              id="rollField"
+              className={styles.cyberInput}
+              placeholder="Enter your roll number"
+              {...register("roll", {
+                required: "Roll number is required",
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: "Roll number must be numeric",
+                },
+              })}
+            />
+            {errors.roll && (
+              <p className={styles.cyberError}>{errors.roll.message}</p>
             )}
           </div>
 
@@ -160,6 +207,13 @@ const SignUp = () => {
               <p className={styles.cyberError}>{passwordMatchError}</p>
             )}
           </div>
+
+          {serverError && (
+            <p className={styles.cyberError}>{serverError}</p>
+          )}
+          {successMessage && (
+            <p className={styles.cyberSuccess}>{successMessage}</p>
+          )}
 
           <div className={styles.buttonContainer}>
             <button type="submit" className={styles.cyberSubmitButton}>

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/SignIn.module.scss";
 import { useForm } from "react-hook-form";
 import robotImage from "../../assets/images/robotNew.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import api from "../../services/api";
 
 const SignIn = () => {
   const {
@@ -12,11 +13,26 @@ const SignIn = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Submitted Data:", data);
+  const [serverError, setServerError] = useState("");
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    setServerError("");
+    try {
+      const response = await api.post("/api/auth/login", data);
+      // Save user data and token in localStorage
+      localStorage.setItem("userData", JSON.stringify(response.data.data));
+      localStorage.setItem("token", response.data.token);
+      navigate("/");
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.message) {
+        setServerError(error.response.data.message);
+      } else {
+        setServerError("An error occurred. Please try again.");
+      }
+    }
   };
 
-  const navigate = useNavigate();
   const handleSignup = () => navigate("/signup");
 
   return (
@@ -70,6 +86,9 @@ const SignIn = () => {
               <p className={styles.cyberError}>{errors.password.message}</p>
             )}
           </div>
+          {serverError && (
+            <p className={styles.cyberError}>{serverError}</p>
+          )}
           <div className={styles.buttonContainer}>
             <button type="submit" className={styles.cyberSubmitButton}>
               LOG IN
