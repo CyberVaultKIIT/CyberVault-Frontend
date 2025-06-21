@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../styles/SignIn.module.scss";
 import { useForm } from "react-hook-form";
 import robotImage from "../../assets/images/robotNew.png";
@@ -14,16 +14,19 @@ const SignIn = () => {
   } = useForm();
 
   const [serverError, setServerError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     setServerError("");
+    setSuccessMessage("");
     try {
       const response = await api.post("/api/auth/login", data);
       // Save user data and token in localStorage
       localStorage.setItem("userData", JSON.stringify(response.data.data));
       localStorage.setItem("token", response.data.token);
-      navigate("/");
+      setSuccessMessage("Login successful! Redirecting...");
+      setTimeout(() => navigate("/"), 1500);
     } catch (error) {
       if (error.response && error.response.data && error.response.data.message) {
         setServerError(error.response.data.message);
@@ -88,6 +91,9 @@ const SignIn = () => {
           </div>
           {serverError && (
             <p className={styles.cyberError}>{serverError}</p>
+          )}
+          {successMessage && (
+            <p className={styles.cyberSuccess}>{successMessage}</p>
           )}
           <div className={styles.buttonContainer}>
             <button type="submit" className={styles.cyberSubmitButton}>

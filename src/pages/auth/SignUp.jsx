@@ -35,13 +35,14 @@ const SignUp = () => {
     setServerError("");
     setSuccessMessage("");
     try {
+      const rollNumber = data.email.split('@')[0];
       // Map frontend fields to backend expected fields
       const payload = {
         name: data.name,
         email: data.email,
         password: data.password,
         phoneNumber: data.phone,
-        roll: data.roll,
+        roll: rollNumber,
       };
       const response = await api.post("/api/auth/register", payload);
       localStorage.setItem("userData", JSON.stringify(response.data.data));
@@ -88,28 +89,6 @@ const SignUp = () => {
             />
             {errors.name && (
               <p className={styles.cyberError}>{errors.name.message}</p>
-            )}
-          </div>
-
-          <div className={styles.cyberFormGroup}>
-            <label htmlFor="rollField" className="cyber-label">
-              ROLL NUMBER
-            </label>
-            <input
-              type="text"
-              id="rollField"
-              className={styles.cyberInput}
-              placeholder="Enter your roll number"
-              {...register("roll", {
-                required: "Roll number is required",
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Roll number must be numeric",
-                },
-              })}
-            />
-            {errors.roll && (
-              <p className={styles.cyberError}>{errors.roll.message}</p>
             )}
           </div>
 
