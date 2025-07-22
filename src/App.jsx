@@ -9,7 +9,7 @@ import About from './pages/about/about.jsx';
 import Login from './pages/auth/SignIn.jsx';
 import SignUp from './pages/auth/SignUp.jsx';
 import AddMember from './pages/addMember/AddMember.jsx';
-
+import EditMember from './pages/editMember/EditMember.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 import { AlertProvider } from "./components/Alert/AlertContext.jsx"; 
@@ -43,6 +43,7 @@ function App() {
 
           <Route path="/team" element={<Team />} />
           <Route path="/addMember" element={<AddMember />} />
+          <Route path="/editMember" element={<EditMember />} />
           <Route path="/form" element={<RegistrationForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
