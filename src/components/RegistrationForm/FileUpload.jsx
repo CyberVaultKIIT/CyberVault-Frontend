@@ -34,7 +34,7 @@
 
 // export default FileUpload;
 
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./styles/FileUpload.module.scss";
 import FileUploadIcon from "../../assets/images/fileUpload.png";
 

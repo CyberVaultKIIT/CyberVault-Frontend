@@ -1,0 +1,152 @@
+.testimonialSection {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 0;
+  overflow: hidden;
+  margin: 4rem 0;
+  
+  .testimonialHeading {
+    font-size: 3.5rem;
+    font-family: "Airnt", "Chakra Petch", sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 4rem;
+    text-shadow:
+      0 0 5px rgba(135, 206, 250, 0.3),
+      0 0 10px rgba(135, 206, 250, 0.2);
+  }
+  
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .carouselTrack {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    width: 100%;
+  }
+  
+  .testimonialSlide {
+    flex: 0 0 33.333%;
+    padding: 0 0.75rem;
+    display: flex;
+    justify-content: center;
+    
+    @media (max-width: 1200px) {
+      flex: 0 0 50%;
+    }
+    
+    @media (max-width: 768px) {
+      flex: 0 0 100%;
+    }
+  }
+  
+  .testimonialCard {
+    background: linear-gradient(
+      180deg,
+      rgb(38, 38, 38) 0%,
+      rgba(21, 21, 21, 0.8) 70%,
+      rgba(19, 19, 19, 0.5) 100%
+    );
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .testimonialText {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    word-wrap: break-word;
+    flex-grow: 1;
+    font-family: "Chakra Petch", sans-serif;
+  }
+  
+  .testimonialAuthor {
+    font-size: 1rem;
+    font-style: italic;
+    text-align: right;
+    opacity: 0.9;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+  
+  .navigationDots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  
+  .navDot {
+    height: 8px;
+    width: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &.activeDot {
+      width: 24px;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .testimonialSection {
+    .testimonialHeading {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonialSection {
+    .testimonialHeading {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .testimonialText {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonialSection {
+    margin: 2rem 0;
+    
+    .testimonialHeading {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    
+    .testimonialCard {
+      padding: 1.5rem;
+    }
+
+    .testimonialText {
+      font-size: 0.90rem;
+    }
+    
+    .navigationDots {
+      margin-top: 1.5rem;
+    }
+  }
+}

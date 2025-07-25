@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './testimonial.module.scss';
+import styles from './styles/testimonial.module.scss';
 
 const OneTestimonial = ({ text, author }) => {
     return (

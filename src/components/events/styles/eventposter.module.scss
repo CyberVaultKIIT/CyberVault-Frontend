@@ -1,0 +1,146 @@
+.eventContainer {
+  border-radius: 50px;
+  background: linear-gradient(180deg, #ac88f5 0%, #5b2cd8 100%);
+  height: 406px;
+  margin: 0 5rem;
+  width: auto;
+  position: relative;
+  overflow: hidden;
+
+  .liveBox {
+    display: flex;
+    width: 85px;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    font-family: "arial";
+    border-radius: 999px;
+    border: 1.4px solid #fdebc8;
+    background: linear-gradient(180deg, #f8e478 0%, #e6ad19 100%);
+    box-shadow: 0px 4px 16px 0px rgba(249, 185, 19, 0.65);
+    position: absolute;
+    left: 40px;
+    top: 30px;
+    color: black;
+  }
+
+  .eventText {
+    color: #000;
+    font-family: CYGUN;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    margin: 0;
+  }
+
+  .image2 {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    bottom: -20px;
+    right: 250px;
+    z-index: 1;
+    border-radius: 10%;
+    rotate: -10deg;
+    object-fit: cover;
+  }
+
+  .image1 {
+    width: 346px;
+    height: 346px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 10%;
+    rotate: -10deg;
+    z-index: 2;
+    right: -20px;
+    bottom: -20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .eventContainer {
+    margin: 0 2.5rem;
+    width: auto;
+    min-height: 300px;
+
+    .eventText {
+      font-size: 72px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .eventContainer {
+    height: 400px;
+    margin: 0 2.5rem;
+    width: auto;
+
+    .eventText {
+      font-size: 60px;
+    }
+
+    .image2 {
+      width: 250px;
+      height: 180px;
+      right: 100px;
+    }
+
+    .image1 {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .eventContainer {
+    // border-radius: 30px;
+    margin: 0 1.5rem;
+    height: 250px;
+    width: auto;
+
+    .liveBox {
+      left: 20px;
+      top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .eventText {
+      font-size: 48px;
+      top: 60px;
+      left: 20px;
+    }
+
+    .image2 {
+      width: 190px;
+      height: 120px;
+      right: 90px;
+    }
+
+    .image1 {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 345px) {
+  .eventContainer {
+    .image2 {
+      width: 150px;
+      height: 80px;
+      right: 50px;
+    }
+
+    .image1 {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

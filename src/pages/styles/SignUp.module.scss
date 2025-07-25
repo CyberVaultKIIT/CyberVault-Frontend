@@ -156,7 +156,6 @@
         10% 100%,
         0% 70%
       );
-      margin-left: 20px;
     }
 
     .cyberSubmitButton:hover {
@@ -187,10 +186,45 @@
         10% 100%,
         0% 70%
       );
-      margin-left: 20px;
     }
 
     .cyberSignupButton:hover {
+      background-color: var(--cyber-blue);
+      box-shadow: 0 0 20px var(--cyber-blue);
+    }
+
+    .googleButtonContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2.5rem;
+      width: 100%;
+    }
+
+    .googleButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 95%;
+      min-width: 150px;
+      padding: 15px 32px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      background-color: var(--cyber-green);
+      color: var(--cyber-black);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      font-family: "Orbitron", sans-serif;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      clip-path: polygon(0% 0%, 95% 0%, 100% 40%, 100% 100%, 5% 100%, 0% 70%);
+    }
+
+    .googleButton:hover {
       background-color: var(--cyber-blue);
       box-shadow: 0 0 20px var(--cyber-blue);
     }
@@ -227,6 +261,7 @@
 
       .buttonContainer {
         gap: 10px;
+        margin-top: 2rem;
       }
 
       .cyberForm {
@@ -241,6 +276,23 @@
       .cyberSignupButton {
         padding: 12px 24px;
         font-size: 0.9rem;
+      }
+
+      .googleButtonContainer {
+        margin-top: 2rem;
+        width: 100%;
+      }
+
+      .googleButton {
+        width: 90%;
+        min-width: 200px;
+        padding: 12px 24px;
+        font-size: 0.8rem;
+
+        img{
+          height: 20px;
+          width: 20px;
+        }
       }
     }
 

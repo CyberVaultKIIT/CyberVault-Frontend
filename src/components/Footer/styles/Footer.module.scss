@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@100&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@700&display=swap');
+
+.footer {
+  background-color: #111;
+  color: #fff;
+  position: relative;
+  padding: 4rem 2rem 2rem;
+  font-family: 'Arial', sans-serif;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .contactSection {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+  
+  .getInTouch {
+    flex: 1;
+    min-width: 300px;
+    
+    .title {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      font-family: "Chakra Petch", sans-serif;
+    }
+    
+    .emailInput {
+      position: relative;
+      max-width: 380px;
+      
+      .input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 0.5rem 0;
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+        font-family: "Chakra Petch", sans-serif;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.5);
+          font-family: "Chakra Petch", sans-serif;
+        }
+      }
+    }
+  }
+  
+  .messageSection {
+    flex: 1;
+    min-width: 300px;
+    
+    .messageBox {
+      position: relative;
+      border: 1px solid #1dc91d;
+      border-radius: 5px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      height: 150px;
+      
+      .messageInput {
+        background: transparent;
+        border: none;
+        color: #fff;
+        resize: none;
+        flex: 1;
+        font-size: 1rem;
+        outline: none;
+        font-family: "Chakra Petch", sans-serif;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+          font-family: "Chakra Petch", sans-serif;
+        }
+      }
+      
+      .sendButton {
+        align-self: flex-end;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+        transition: background-color 0.3s ease;
+        font-family: "Chakra Petch", sans-serif;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+  
+  .footerBottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .footerLeft {
+    .brand {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-family: "Chakra Petch", sans-serif;
+      
+      .year {
+        color: #1dc91d;
+        font-weight: bold;
+        font-family: "Chakra Petch", sans-serif;
+      }
+    }
+    
+    .socialIcons {
+      display: flex;
+      gap: 1rem;
+      
+      .socialIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: #1dc91d;
+        }
+      }
+    }
+  }
+  
+  .footerRight {
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: #1dc91d;
+    }
+  }
+  
+  .navSection {
+    display: flex;
+    gap: 3rem;
+    
+    .navLinks {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      
+      .link {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-family: "Chakra Petch", sans-serif;
+        
+        &:hover {
+          color: #1dc91d;
+        }
+      }
+    }
+    
+    .enquiries {
+      p {
+        margin-bottom: 0.5rem;
+        font-family: "Chakra Petch", sans-serif;
+      }
+      
+      .emailId {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        
+      }
+    }
+  }
+  
+  .scrollTop {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    background-color: #333;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: #444;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 2rem;
+    
+    .contactSection {
+      flex-direction: column;
+      margin-bottom: 3rem;
+    }
+    
+    .getInTouch {
+      .title {
+        font-size: 2rem;
+      }
+    }
+    
+    .footerBottom {
+      flex-direction: column;
+    }
+    
+    .footerRight {
+      &::before {
+        display: none;
+      }
+    }
+    
+    .navSection {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem 1.5rem;
+    
+    .getInTouch {
+      .title {
+        font-size: 1.75rem;
+      }
+    }
+    
+    .messageBox {
+      height: 120px;;
+    }
+
+    .messageSection{
+      min-width: 100px;
+    }
+
+    .getInTouch{
+      min-width: 100px;
+    }
+    
+    .navSection {
+      gap: 1.5rem;
+    }
+    
+    .scrollTop {
+      width: 40px;
+      height: 40px;
+      right: 1rem;
+      bottom: 1rem;
+    }
+  }
+}
