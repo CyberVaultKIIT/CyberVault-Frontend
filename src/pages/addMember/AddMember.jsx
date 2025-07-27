@@ -1,30 +1,50 @@
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import styles from './AddMember.module.scss'
-import defaultProfile from '../../../src/assets/images/profile.svg'
-import dropdown from '../../../src/assets/images/polygon2.svg'
-import TextField from '../../components/RegistrationForm/TextField'
+import React, { useState } from 'react';
+import './AddMember.module.scss'; // Assuming you have styles in this file
+import { useForm } from 'react-hook-form';
+import styles from './AddMember.module.scss';
+import defaultProfile from '../../../src/assets/images/profile.svg';
+import TextField from '../../components/RegistrationForm/TextField';
+import axios from 'axios';
 
-import { FiGithub } from 'react-icons/fi'
-import { FaLinkedinIn, FaXTwitter, FaPaperclip } from 'react-icons/fa6'
+import { FiGithub } from 'react-icons/fi';
+import { FaLinkedinIn, FaXTwitter, FaPaperclip } from 'react-icons/fa6';
 
 function AddMember() {
-  const { register, handleSubmit, formState: { errors } } = useForm()
-  const [selectedImage, setSelectedImage] = useState(defaultProfile)
+  // React Hook Form initialization
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [selectedImage, setSelectedImage] = useState(defaultProfile);
+  const [submitting, setSubmitting] = useState(false);
 
+  // Handle image selection & preview
   const handleImageChange = (e) => {
-    const file = e.target.files[0]
+    const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader()
-      reader.onloadend = () => setSelectedImage(reader.result)
-      reader.readAsDataURL(file)
+      const reader = new FileReader();
+      reader.onloadend = () => setSelectedImage(reader.result);
+      reader.readAsDataURL(file);
     }
-  }
+  };
 
-  const onSubmit = (data) => {
-    console.log(data)
-  }
+  // Handle form submit
+  const onSubmit = async (data) => {
+    setSubmitting(true);
+    try {
+      const payload = {
+        ...data,
+        profileImage: selectedImage, // include image as base64
+      };
+      await axios.post('/api/members', payload); // proxy will forward to backend
+      alert('Member added successfully!');
+      reset();
+      setSelectedImage(defaultProfile);
+    } catch (error) {
+      console.error('Error adding member:', error);
+      alert('Failed to add member');
+    }
+    setSubmitting(false);
+  };
 
+  // Social inputs configuration
   const socialFields = [
     {
       name: 'github',
@@ -47,12 +67,11 @@ function AddMember() {
       inputClass: styles.socialInput,
       color: 'white',
     },
-  ]
+  ];
 
   return (
     <div className={styles.container}>
       <h1 className={styles.heading1}>ADD A MEMBER</h1>
-
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.first}>
           <div className={styles.firstLeft}>
@@ -60,18 +79,22 @@ function AddMember() {
               <img src={selectedImage} alt="Profile" className={styles.profileImage} />
               <label className={styles.imageButton}>
                 UPLOAD PHOTO
-                <input type="file" accept="image/*" onChange={handleImageChange} style={{ display: 'none' }} />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  style={{ display: 'none' }}
+                />
               </label>
             </div>
-
-            {/* DESKTOP: Role */}
-            <button type="button" className={`${styles.sort} ${styles.desktopOnly}`}>
-              <div className={styles.between}>
-                SELECT ROLE <img src={dropdown} alt="dropdown" />
-              </div>
-            </button>
+            <select {...register("role", { required: true })} className={styles.sort}>
+              <option value="">SELECT ROLE</option>
+              <option value="member">Member</option>
+              <option value="moderator">Moderator</option>
+              <option value="admin">Admin</option>
+            </select>
+            {errors.role && <span className={styles.error}>Role is required</span>}
           </div>
-
           <div className={styles.firstRight}>
             <TextField
               field={{
@@ -115,26 +138,23 @@ function AddMember() {
           </div>
         </div>
 
-        {/* MOBILE: Role */}
-        <div className={styles.mobileRoleButton}>
-          <div className={styles.mobileOnly}>
-            <p className={styles.mobileLabel}>• ROLE SELECTION:</p>
-          </div>
-          <button type="button" className={styles.sort}>
-            <div className={styles.between}>SELECT ROLE<img src={dropdown} alt="dropdown" /></div>
-            
-          </button>
-        </div>
-
-        {/* Year, Batch, Website */}
+        {/* Year & Batch */}
         <div className={styles.second}>
-          <button type="button" className={styles.sort}>
-            <div className={styles.between}>SELECT YEAR <img src={dropdown} alt="dropdown" /></div>
-          </button>
-          <button type="button" className={styles.sort}>
-            <div className={styles.between}>BATCH <img src={dropdown} alt="dropdown" /></div>
-          </button>
-          <div className={styles.sort} >
+          <select {...register("year", { required: true })} className={styles.sort}>
+            <option value="">SELECT YEAR</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
+          {errors.year && <span className={styles.error}>Year is required</span>}
+          <select {...register("batch", { required: true })} className={styles.sort}>
+            <option value="">BATCH</option>
+            <option value="A">1st Year</option>
+            <option value="B">2nd Year</option>
+            <option value="C">3rd Year</option>
+          </select>
+          {errors.batch && <span className={styles.error}>Batch is required</span>}
+          <div className={styles.sort}>
             <input
               type="url"
               placeholder="Enter Personal Website"
@@ -150,51 +170,16 @@ function AddMember() {
                 outline: 'none'
               }}
             />
-            <span className={`${styles.black} ${styles.right}`} >
+            <span className={`${styles.black} ${styles.right}`}>
               <FaPaperclip />
             </span>
           </div>
         </div>
 
-        {/* MOBILE VIEW Year, Batch, Website */}
-        <div className={styles.second2}>
-          <div className={styles.mobileOnly}>
-            <p className={styles.mobileLabel}>• YEAR SELECTION:</p>
-          </div>
-          <button type="button" className={styles.sort}>
-            <div className={styles.between}>SELECT YEAR <img src={dropdown} alt="dropdown" /></div>
-          </button>
-
-          <div className={styles.mobileOnly}>
-            <p className={styles.mobileLabel}>• BATCH SELECTION:</p>
-          </div>
-          <button type="button" className={styles.sort}>
-            <div className={styles.between}>BATCH <img src={dropdown} alt="dropdown" /></div>
-          </button>
-
-          <div className={styles.mobileOnly}>
-            <p className={styles.mobileLabel}>• PERSONAL WEBSITE</p>
-          </div>
-          <div className={styles.sort} >
-  
-  <input
-    type="url"
-    placeholder="Enter Personal Website"
-    {...register('website')}
-    className={styles.websiteInput}/>
-  <span className={`${styles.black} ${styles.right}`} ><FaPaperclip /></span>
-</div>
-
-        </div>
-
-            <div className={styles.mobileOnly1}>
-            <p className={styles.mobileLabel}>• ATTACH LINKS TO THE SOCIALS:</p>
-          </div>
         {/* SOCIAL INPUTS */}
         <div className={styles.third}>
-            
           {socialFields.map(({ name, placeholder, icon, inputClass, color }, idx) => (
-            <div key={idx} className={styles.sort1} >
+            <div key={idx} className={styles.sort1}>
               <span className={`${styles.black} ${styles.left}`}>
                 {icon}
               </span>
@@ -216,16 +201,17 @@ function AddMember() {
             </div>
           ))}
         </div>
+
         <div className={styles.full}>
-        <div className={styles.four}>
-          <button type="submit" className={styles.cybersubmitbutton}>
-            Submit
-          </button>
-        </div>
+          <div className={styles.four}>
+            <button type="submit" className={styles.cybersubmitbutton} disabled={submitting}>
+              {submitting ? 'Submitting...' : 'Submit'}
+            </button>
+          </div>
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default AddMember
+export default AddMember;
