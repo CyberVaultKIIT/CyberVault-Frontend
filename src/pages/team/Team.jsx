@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect, useState } from 'react'
 import styles from './Team.module.scss'
 import cyber from '../../../src/assets/images/cyber.svg'
