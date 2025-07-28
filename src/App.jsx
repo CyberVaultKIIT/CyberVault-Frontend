@@ -9,6 +9,7 @@ import About from './pages/about/about.jsx';
 import Login from './pages/auth/SignIn.jsx';
 import SignUp from './pages/auth/SignUp.jsx';
 import AddMember from './pages/addMember/AddMember.jsx';
+import Event from './pages/events/events.jsx';
 
 import Footer from './components/Footer/Footer.jsx';
 
@@ -40,7 +41,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/about" element={<About />} />
-
+          <Route path ="/events" element={<Event/>}/>
           <Route path="/team" element={<Team />} />
           <Route path="/addMember" element={<AddMember />} />
           <Route path="/form" element={<RegistrationForm />} />

@@ -1,0 +1,220 @@
+/* Hero Section */
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 5%;
+  gap: 4rem;
+  background-color: #000;
+  min-height: 70vh;
+
+  .heroContent {
+    flex: 1;
+    max-width: 600px;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #00FF00; /* Green color for the heading */
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+
+    .eventDetails {
+      margin-bottom: 2rem;
+      p {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        color: #ddd;
+        strong {
+          color: #fff;
+        }
+      }
+    }
+
+    .registerButton {
+      background-color: #00FF00;
+      color: #000;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      &:hover {
+        background-color: #00E600;
+        transform: translateY(-2px);
+      }
+    }
+
+    .speakers {
+      margin-top: 3rem;
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+      .speakerImages {
+        display: flex;
+        gap: 1rem;
+        .speakerImg {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid #00FF00;
+        }
+      }
+    }
+  }
+
+  .heroImage {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3); /* Green shadow */
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+    .heroContent {
+      max-width: 100%;
+      h1 {
+        font-size: 2.8rem;
+      }
+    }
+    .heroImage {
+      margin-top: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 5%;
+    .heroContent {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+      .registerButton {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+      }
+      .speakers {
+        .speakerImages {
+          justify-content: center;
+        }
+      }
+    }
+    .heroImage {
+      width: 250px;
+      height: 375px;
+    }
+  }
+}
+
+/* Partner Logos Section */
+.partnerLogosSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 2rem 5%;
+  background-color: #000;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  margin-bottom: 4rem;
+
+  .partnerLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      width: 100px;
+      height: 50px;
+      object-fit: contain;
+      filter: grayscale(100%) brightness(200%); /* Make logos white */
+    }
+
+    span {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1.5rem 5%;
+  }
+}
+.followForMoreSection {
+  background-color: #00FF00; /* Green background */
+  padding: 5rem 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 30px; /* Rounded corners for the section */
+  margin: 4rem auto; /* Center the section with margin */
+  max-width: 80%; /* Limit width */
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.5); /* Green shadow */
+
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000; /* Black text on green background */
+    margin-bottom: 2rem;
+  }
+
+  .followButton {
+    background-color: #000;
+    color: #00FF00;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #333;
+      transform: translateY(-3px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 5%;
+    max-width: 90%;
+    h2 {
+      font-size: 2rem;
+    }
+    .followButton {
+      padding: 0.8rem 2.5rem;
+      font-size: 1rem;
+    }
+}
+}
