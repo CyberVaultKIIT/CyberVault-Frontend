@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&display=swap');
+
+.container {
+  background-color: #002400;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  // padding: 2rem;
+}
+
+.upcomingContainer {
+  padding: 2rem;
+}
+
+.heading {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  align-self: flex-start;
+  padding-left: 1rem;
+  padding: 2rem;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cardPoster {
+  height: 630px;
+  flex: 1;
+  padding: 1.5rem;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  background: linear-gradient(90deg, #32cd32, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+// Sponsors
+
+.sponsor-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  padding: 1.5rem 2rem;
+  margin: 3rem -4rem;
+  background: linear-gradient(90deg, #004B01 0%, #01CA04 49.97%, #004B01 100%);
+  height: 120px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sponsor-image {
+  height: 80px;
+  width: 120px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  object-fit: cover;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.sponsor-image:hover {
+  transform: translateY(-4px);
+}
+
+//Past Events
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: rgba(217, 217, 217, 1);
+  color: #000;
+  border: none;
+  height: 45px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  // position: relative;
+  top: 5px; 
+}
+
+.btn:hover {
+  background-color: #c0c0c0;
+}
+
+.imageGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.eventImage:hover {
+  transform: scale(1.05);
+}
+
+.pastEvents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+ 
+
+.pastEventCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 360px;
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.pastEventText {
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Chakra Petch', sans-serif;
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.5;
+  width: 360px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+//Explore
+
+.exploreButton {
+  background-color: #04b20b;
+  color: black;
+  border: none;
+  padding: 12px 20px;
+  margin: 40px 0;
+  font-size: 22px;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 15px) 0,
+    100% 15px,
+    100% 100%,
+    15px 100%,
+    0 calc(100% - 15px)
+  );
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  font-family: 'CYGUN', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+// Responsive
+
+@media (max-width: 1024px) {
+  .cardContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardPoster {
+    font-size: 3rem;
+    height: auto;
+    text-align: center;
+  }
+
+  .pastEvents {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .sponsor-images {
+    gap: 3rem;
+    height: auto;
+  }
+
+  .sponsor-image {
+    height: 60px;
+    width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+    text-align: center;
+    align-self: center;
+    padding: 1rem;
+  }
+
+  .cardPoster {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .eventImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .sponsor-images {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.sponsor-image {
+  height: 40px;
+  width: 60px;
+  flex-shrink: 0;
+}
+
+ .pastEvents {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+
+    .pastEventCard {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .pastEventText {
+    width: 100%;
+    height: auto;
+  }
+
+    .btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    height: 38px;
+    display: block;
+    margin: 0 auto;
+  }
+
+
+  .exploreButton {
+    font-size: 18px;
+    padding: 10px 16px;
+  }
+}
+
+@media (min-width: 769px) {
+  .pastEvents {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn {
+    margin: 0;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .cardPoster {
+    font-size: 1.6rem;
+  }
+
+  .eventImage {
+    height: 180px;
+  }
+
+  .pastEventText {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    height: 32px;
+  }
+}

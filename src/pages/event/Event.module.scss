@@ -1,0 +1,340 @@
+.eventSection {
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  margin-top: 70px;
+
+  .carousel {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 140px;
+    flex-wrap: nowrap;
+    
+     &::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%; 
+      height: 180px;  
+      background: radial-gradient(
+        ellipse at top,
+        rgba(31, 212, 39, 0.8) 0%,
+        rgba(31, 212, 39, 0.3) 50%,
+        transparent 90%
+      );
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(15px); 
+    }
+
+    .card {
+      position: absolute;
+      width: 250px;
+      height: 400px;
+      margin: 0 -20px;
+      border-radius: 10px;
+      overflow: hidden;
+      opacity: 1;
+      transition: all 0.7s ease-in-out;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+      z-index: 1;
+      border: 2px solid white; 
+
+      
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .center {
+      transform: translateX(0) scale(1.2);
+      z-index: 5;
+    }
+
+    .left {
+      transform: translateX(-180px) scale(1.05);
+      z-index: 4;
+    }
+
+    .farLeft {
+      transform: translateX(-320px) scale(0.95);
+      z-index: 3;
+    }
+
+    .right {
+      transform: translateX(180px) scale(1.05);
+      z-index: 4;
+    }
+
+    .farRight {
+      transform: translateX(320px) scale(0.95);
+      z-index: 3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.6;
+        transition: opacity 0.3s, transform 0.3s;
+        cursor: pointer;
+
+        &.active {
+          opacity: 1;
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+
+  .exploreButton {
+    background-color: #04b20b;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 70px;
+    font-size: 22px;
+    clip-path: polygon(
+      0 0,
+      calc(100% - 15px) 0,
+      100% 15px,
+      100% 100%,
+      15px 100%,
+      0 calc(100% - 15px)
+    );
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    font-family: 'CYGUN', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .feedbackSection {
+    overflow-x: auto;
+    white-space: normal;
+    margin-top: 30px;
+    scroll-behavior: smooth;
+    padding: 40px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 40px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .feedbackCard {
+      flex: 0 0 320px;
+      height: 320px;
+      background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 24px;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.6);
+        border-left: 1px solid rgba(255, 255, 255, 0.4);
+        border-right: 1px solid rgba(255, 255, 255, 0.4);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.3));
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.3));
+        border-radius: inherit;
+        z-index: 1;
+      }
+
+      .feedbackName {
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 14px;
+        align-self: flex-start;
+        text-align: left;
+      }
+
+      .feedbackComment {
+        font-size: 14px;
+        line-height: 1.45;
+        align-self: flex-start;
+        text-align: left;
+      }
+    }
+  }
+
+
+
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+    margin-top: 50px;
+
+    .carousel {
+      height: 300px;
+      margin-bottom: 60px;
+
+      &::after {
+         display: none;
+      }
+
+      .card {
+        width: 160px;
+        height: 260px;
+        margin: 0 -10px;
+      }
+
+      .center {
+        transform: translateX(0) scale(1.15);
+      }
+
+      .left {
+        transform: translateX(-100px) scale(1.05);
+      }
+
+      .farLeft {
+        transform: translateX(-170px) scale(0.95);
+      }
+
+      .right {
+        transform: translateX(100px) scale(1.05);
+      }
+
+      .farRight {
+        transform: translateX(170px) scale(0.95);
+      }
+
+      .dots {
+        bottom: -50px;
+        
+        .dot {
+          width: 7px;
+          height: 7px;
+        }
+      }
+    }
+
+    
+
+    .feedbackSection {
+      margin-top: 20px;
+      padding: 30px 0;
+      gap: 25px;
+
+      .feedbackCard {
+        flex: 0 0 240px;
+        height: 240px;
+        padding: 18px;
+
+        .feedbackName {
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+
+        .feedbackComment {
+          font-size: 12px;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 10px;
+
+    .carousel {
+      height: 250px;
+      margin-bottom: 50px;
+
+      .card {
+        width: 130px;
+        height: 220px;
+        margin: 0 -8px;
+      }
+
+      .left {
+        transform: translateX(-80px) scale(1.05);
+      }
+
+      .farLeft {
+        transform: translateX(-140px) scale(0.95);
+      }
+
+      .right {
+        transform: translateX(80px) scale(1.05);
+      }
+
+      .farRight {
+        transform: translateX(140px) scale(0.95);
+      }
+
+      .dots {
+        bottom: -40px;
+        
+        .dot {
+          width: 6px;
+          height: 6px;
+        }
+      }
+    }
+
+     
+
+    .feedbackSection {
+      .feedbackCard {
+        flex: 0 0 200px;
+        height: 200px;
+        padding: 15px;
+
+        .feedbackName {
+          font-size: 13px;
+        }
+
+        .feedbackComment {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+} 
