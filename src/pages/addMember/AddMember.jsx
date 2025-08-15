@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAlert } from '../../components/Alert/AlertContext';
 import './AddMember.module.scss'; // Assuming you have styles in this file
 import { useForm } from 'react-hook-form';
 import styles from './AddMember.module.scss';
@@ -16,25 +17,30 @@ function AddMember() {
   const [imageFile, setImageFile] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
+  const { showAlert } = useAlert();
+
+  // Remove selected image handler
+  const handleRemoveImage = () => {
+    setSelectedImage(defaultProfile);
+    setImageFile(null);
+  };
+
   // Handle image selection & preview
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       // Validate file type
       if (!file.type.startsWith('image/')) {
-        alert('Please select a valid image file');
+        showAlert('Please select a valid image file', 'error');
         return;
       }
-      
       // Validate file size (5MB max)
       if (file.size > 5 * 1024 * 1024) {
-        alert('Image size must be less than 5MB');
+        showAlert('Image size must be less than 5MB', 'error');
         return;
       }
-      
       // Store the file for upload
       setImageFile(file);
-      
       // Create preview
       const reader = new FileReader();
       reader.onloadend = () => setSelectedImage(reader.result);
@@ -49,13 +55,12 @@ function AddMember() {
       // Additional validation for social media URLs
       const socialValidation = validateSocialUrls(data);
       if (!socialValidation.isValid) {
-        alert(socialValidation.message);
+        showAlert(socialValidation.message, 'error');
         setSubmitting(false);
         return;
       }
 
       let result;
-      
       if (imageFile) {
         // Use file upload method
         result = await memberService.createMember(data, imageFile);
@@ -70,9 +75,9 @@ function AddMember() {
         // No image
         result = await memberService.createMember(data);
       }
-      
+
       if (result.success) {
-        alert(result.message);
+        showAlert(result.message, 'success');
         reset();
         setSelectedImage(defaultProfile);
         setImageFile(null);
@@ -80,19 +85,19 @@ function AddMember() {
         // Handle specific error cases
         const errorMsg = result.error.message;
         if (result.error.status === 409) {
-          alert('A member with this email already exists. Please use a different email.');
+          showAlert('A member with this email already exists. Please use a different email.', 'error');
         } else if (result.error.status === 400) {
-          alert(`Validation Error: ${errorMsg}`);
+          showAlert(`Validation Error: ${errorMsg}`, 'error');
         } else if (result.error.status === 'NETWORK_ERROR') {
-          alert('Network Error: Unable to connect to server. Please check your internet connection.');
+          showAlert('Network Error: Unable to connect to server. Please check your internet connection.', 'error');
         } else {
-          alert(`Error: ${errorMsg}`);
+          showAlert(`Error: ${errorMsg}`, 'error');
         }
         console.error('Error details:', result.error);
       }
     } catch (error) {
       console.error('Unexpected error adding member:', error);
-      alert('An unexpected error occurred. Please try again.');
+      showAlert('An unexpected error occurred. Please try again.', 'error');
     }
     setSubmitting(false);
   };
@@ -189,15 +194,36 @@ function AddMember() {
           <div className={styles.firstLeft}>
             <div className={styles.imageWrapper}>
               <img src={selectedImage} alt="Profile" className={styles.profileImage} />
-              <label className={styles.imageButton}>
-                UPLOAD PHOTO
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  style={{ display: 'none' }}
-                />
-              </label>
+              {selectedImage === defaultProfile ? (
+                <label className={styles.imageButton}>
+                  UPLOAD PHOTO
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    style={{ display: 'none' }}
+                  />
+                </label>
+              ) : (
+                <div className={styles.imageActions}>
+                  <label className={styles.imageButton}>
+                    CHANGE
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      style={{ display: 'none' }}
+                    />
+                  </label>
+                  <button
+                    type="button"
+                    className={styles.removeButton}
+                    onClick={handleRemoveImage}
+                  >
+                    REMOVE
+                  </button>
+                </div>
+              )}
             </div>
             <select {...register("role", { required: true })} className={styles.sort}>
               <option value="">SELECT ROLE</option>
