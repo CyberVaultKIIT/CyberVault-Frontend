@@ -19,7 +19,7 @@ body {
   align-items: center;
   background-image: linear-gradient(to top, #015801, #000000 50%);
   color: var(--cyber-green);
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -61,7 +61,7 @@ body {
       font-weight: bold;
       text-align: center;
       color: var(--cyber-green);
-      background: radial-gradient( #ffffff,var(--cyber-green));
+      background: radial-gradient(#ffffff, var(--cyber-green));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -103,7 +103,7 @@ body {
       display: block;
       margin: 0;
       padding: 0;
-      margin-right:auto;
+      margin-right: auto;
       margin-bottom: 0.5rem;
       font-size: 1rem;
       color: var(--cyber-green);
@@ -137,7 +137,7 @@ body {
       justify-content: center;
       gap: 50px;
       margin-top: 2.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     .cyberSubmitButton {
@@ -163,13 +163,49 @@ body {
         10% 100%,
         0% 70%
       );
-      margin-left: 20px;
     }
 
     .cyberSubmitButton:hover {
       background-color: var(--cyber-blue);
       box-shadow: 0 0 20px var(--cyber-blue);
     }
+
+    .googleButtonContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2.5rem;
+      width: 100%;
+    }
+
+    .googleButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 95%;
+      min-width: 150px;
+      padding: 15px 32px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      background-color: var(--cyber-green);
+      color: var(--cyber-black);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      font-family: "Orbitron", sans-serif;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      clip-path: polygon(0% 0%, 95% 0%, 100% 40%, 100% 100%, 5% 100%, 0% 70%);
+    }
+
+    .googleButton:hover {
+      background-color: var(--cyber-blue);
+      box-shadow: 0 0 20px var(--cyber-blue);
+    }
+
 
     .cyberSignupButton {
       padding: 15px 32px;
@@ -208,12 +244,19 @@ body {
       margin-bottom: 5px;
     }
 
-    .registerLink{
+    .forgotPasswordText {
+      font-size: 15px;
+      text-decoration: none;
+      color: var(--cyber-green);
+      margin-bottom: 1.5rem;
+    }
+
+    .registerLink {
       color: white;
       text-decoration: none;
     }
 
-    .registerLink:hover{
+    .registerLink:hover {
       color: var(--cyber-blue);
     }
 
@@ -233,7 +276,8 @@ body {
       }
 
       .buttonContainer {
-        gap:10px
+        gap: 10px;
+        margin-top: 2rem;
       }
 
       .cyberForm {
@@ -248,6 +292,23 @@ body {
       .cyberSignupButton {
         padding: 12px 24px;
         font-size: 0.9rem;
+      }
+
+      .googleButtonContainer {
+        margin-top: 2rem;
+        width: 100%;
+      }
+
+      .googleButton {
+        width: 90%;
+        min-width: 200px;
+        padding: 12px 24px;
+        font-size: 0.8rem;
+
+        img{
+          height: 20px;
+          width: 20px;
+        }
       }
     }
 
@@ -296,7 +357,7 @@ body {
         font-size: 0.8rem;
       }
 
-      .registerLink{
+      .registerLink {
         font-size: 0.8rem;
       }
     }
