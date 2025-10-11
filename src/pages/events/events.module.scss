@@ -1,3 +1,24 @@
+/* General Container Styles for Loading/Error/No-Data States */
+.loadingContainer,
+.errorContainer,
+.noDataContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Take up most of the screen height */
+  font-size: 1.5rem;
+  color: #ccc;
+  background-color: #000;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Specific color for error messages */
+.errorContainer {
+  color: #ff6b6b; /* A reddish color for errors */
+}
+
+
 /* Hero Section */
 .heroSection {
   display: flex;
@@ -169,6 +190,8 @@
     padding: 1.5rem 5%;
   }
 }
+
+/* Follow for More Section */
 .followForMoreSection {
   background-color: #00FF00; /* Green background */
   padding: 5rem 5%;
@@ -216,5 +239,5 @@
       padding: 0.8rem 2.5rem;
       font-size: 1rem;
     }
-}
+  }
 }
