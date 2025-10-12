@@ -1,0 +1,71 @@
+@import url("https://fonts.cdnfonts.com/css/airnt");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap");
+
+// body {
+//     font-family: 'Chakra Petch', sans-serif;
+//     margin: 0; /* Removes default margin */
+//     background-color: #000; /* Optional: Set a background color */
+//     color: #fff; /* Optional: Set a text color for better contrast */
+// }
+
+.welcomeHeading {
+  font-size: 3.5rem;
+  font-family: "Airnt", "Chakra Petch", sans-serif;
+  text-align: center; /* Ensures text is centered inside the h1 */
+}
+
+.subtitle {
+  color: #00fd04;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center; /* Ensures text is centered inside the p */
+  padding-bottom: 60px;
+}
+
+.aboutBox {
+  border-radius: 67px;
+  background-color: #00b508;
+  max-width: 75%;
+  margin: 3rem auto;
+  font-size: 1.875rem;
+  padding: 3rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .welcomeHeading {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .aboutBox {
+    padding: 2rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeHeading {
+    font-size: 0.95rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .aboutBox {
+    padding: 1.5rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    margin: 0.9rem 1.3rem;
+  }
+}
