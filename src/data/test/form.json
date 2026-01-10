@@ -1,4 +1,5 @@
 {
+  "id": "678414261e419546a0acb108",
   "infoObject": {
     "formTitle": "User Registration Form",
     "description": "This form collects user information for registration purposes.",
@@ -69,7 +70,12 @@
           "fieldName": "gender",
           "type": "select",
           "label": "Gender",
-          "options": ["Male", "Female", "Other", "Prefer not to say"],
+          "options": [
+            "Male",
+            "Female",
+            "Other",
+            "Prefer not to say"
+          ],
           "required": true,
           "feedback": "Please select your gender."
         },
@@ -138,16 +144,24 @@
           "fieldName": "preferredContact",
           "type": "select",
           "label": "Preferred Contact Method",
-          "options": ["Email", "Phone", "Text Message"],
+          "options": [
+            "Email",
+            "Phone",
+            "Text Message"
+          ],
           "required": true
         },
         {
           "fieldName": "receiveUpdates",
           "type": "checkbox",
           "label": "Receive Updates",
-          "options": ["Newsletters", "Promotions", "Event Invitations"],
+          "options": [
+            "Newsletters",
+            "Promotions",
+            "Event Invitations"
+          ],
           "validation": {
-            "minimumselect":1,
+            "minimumselect": 1,
             "maximumSelect": 2
           },
           "required": false
@@ -160,8 +174,11 @@
         }
       ]
     }
-  ],  
-  "requiredSection": ["Personal Information", "Preferences"],
+  ],
+  "requiredSection": [
+    "Personal Information",
+    "Preferences"
+  ],
   "optional": {
     "notes": "Optional remarks or additional information can be provided here."
   }

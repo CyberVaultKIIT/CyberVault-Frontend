@@ -7,6 +7,7 @@ import CheckboxField from "./CheckboxField";
 import FileUpload from "./FileUpload";
 import IncrementDecrementField from "./Increment-Decrement";
 import styles from "./styles/registrationForm.module.scss";
+import api from "../../services/api";
 
 const RegistrationForm = () => {
   const {
@@ -20,10 +21,35 @@ const RegistrationForm = () => {
   } = useForm();
   const [currentStep, setCurrentStep] = useState(0);
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    reset();
+  const onSubmit = async (data) => {
+    console.log("Form Data Submitted: ", data);
+    try {
+      const response = await api.post(
+        `http://localhost:5001/api/form/formSubmission/${formData.id}`,
+        {
+          responseData: data
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      const result = await response.json();
+      console.log("Success:", result);
+
+      reset(); // reset form after successful submission
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
+
 
   const currentSection = formData.sections[currentStep];
   const isRequiredSection = formData.requiredSection.includes(
@@ -34,7 +60,7 @@ const RegistrationForm = () => {
     watch(field.fieldName)
   );
 
-  const isSectionFilled = watchSectionFields.some((value) => 
+  const isSectionFilled = watchSectionFields.some((value) =>
     value && (typeof value === 'string' ? value.trim().length > 0 : value.length > 0)
   );
 
@@ -48,7 +74,7 @@ const RegistrationForm = () => {
 
   const handleNext = async (e) => {
     e.preventDefault();
-    
+
     const fieldsToValidate = isSectionFilled || isRequiredSection
       ? currentSection.fields.map((field) => field.fieldName)
       : [];
@@ -84,11 +110,15 @@ const RegistrationForm = () => {
     handleSubmit(onSubmit)(e);
   };
 
+  const test = (e) => {
+    console.log("Test function", e);
+  }
+
   const triggerGrid = currentSection.fields.length > 7;
 
   return (
-    <form 
-      className={styles.cybercontainer} 
+    <form
+      className={styles.cybercontainer}
       onSubmit={handleFormSubmit}
     >
       <h1 className={styles.cybertitle}>{formData.infoObject.formTitle}</h1>
@@ -96,63 +126,63 @@ const RegistrationForm = () => {
 
       <div>
         <h2 className={styles.cybertitle}>{currentSection.sectionTitle}</h2>
-        <div className={triggerGrid?styles.formContainer:""}>
+        <div className={triggerGrid ? styles.formContainer : ""}>
           {currentSection.fields.map((field) => {
 
-          switch (field.type) {
-            case "text":
-              return (
-                <TextField
-                  key={`${currentStep}-${field.fieldName}`}
-                  field={field}
-                  register={register}
-                  errors={errors}
-                  onChange={(e) => handleFieldChange(field.fieldName, e.target.value)}
-                />
-              );
-            case "select":
-              return (
-                <SelectField
-                  key={`${currentStep}-${field.fieldName}`}
-                  field={field}
-                  register={register}
-                  errors={errors}
-                  onChange={(e) => handleFieldChange(field.fieldName, e.target.value)}
-                />
-              );
-            case "fileUpload":
-              return (
-                <FileUpload
-                  key={`${currentStep}-${field.fieldName}`}
-                  field={field}
-                  register={register}
-                  errors={errors}
-                  onChange={(e) => handleFieldChange(field.fieldName, e.target.value)} />
-              );
-            case "checkbox":
-              return (
-                <CheckboxField
-                  key={`${currentStep}-${field.fieldName}`}
-                  field={field}
-                  register={register}
-                  errors={errors}
-                />
-              );
-            case "increment-decrement":
-              return (
-                <IncrementDecrementField
-                  key={`${currentStep}-${field.fieldName}`}
-                  field={field}
-                  register={register}
-                  errors={errors}
-                />
-              );
-            default:
-              return null;
+            switch (field.type) {
+              case "text":
+                return (
+                  <TextField
+                    key={`${currentStep}-${field.fieldName}`}
+                    field={field}
+                    register={register}
+                    errors={errors}
+                    onChange={(e) => handleFieldChange(field.fieldName, e.target.value)}
+                  />
+                );
+              case "select":
+                return (
+                  <SelectField
+                    key={`${currentStep}-${field.fieldName}`}
+                    field={field}
+                    register={register}
+                    errors={errors}
+                    onChange={(e) => handleFieldChange(field.fieldName, e.target.value)}
+                  />
+                );
+              case "fileUpload":
+                return (
+                  <FileUpload
+                    key={`${currentStep}-${field.fieldName}`}
+                    field={field}
+                    register={register}
+                    errors={errors}
+                    onChange={(e) => handleFieldChange(field.fieldName, e.target.value)} />
+                );
+              case "checkbox":
+                return (
+                  <CheckboxField
+                    key={`${currentStep}-${field.fieldName}`}
+                    field={field}
+                    register={register}
+                    errors={errors}
+                  />
+                );
+              case "increment-decrement":
+                return (
+                  <IncrementDecrementField
+                    key={`${currentStep}-${field.fieldName}`}
+                    field={field}
+                    register={register}
+                    errors={errors}
+                  />
+                );
+              default:
+                return null;
+            }
           }
-        }
-        )}
-          </div>
+          )}
+        </div>
       </div>
       <div>
         {currentStep > 0 && (
@@ -173,11 +203,11 @@ const RegistrationForm = () => {
             Next
           </button>
         ) : (
-          <button type="submit" className={styles.cybersubmitbutton}>
+          <button type="submit" className={styles.cybersubmitbutton} onClick={test}>
             Submit
           </button>
         )}
-        </div>
+      </div>
     </form>
 
   );
