@@ -1,6 +1,6 @@
 export const getEventData = async () => {
   try {
-    const response = await fetch("/api/form/events");
+    const response = await fetch("/api/event/allEvents");
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }

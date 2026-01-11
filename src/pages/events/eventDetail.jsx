@@ -26,58 +26,58 @@ const SponsorsRow = ({ sponsors = [] }) => (
   </div>
 )
 
-const ThreeDGallery = ({ images = [] }) => {
-  const containerRef = useRef(null)
-  const [isAuto, setIsAuto] = useState(true)
+// const ThreeDGallery = ({ images = [] }) => {
+//   const containerRef = useRef(null)
+//   const [isAuto, setIsAuto] = useState(true)
 
-  // duplicate the images to create a seamless loop
-  const doubled = images && images.length ? [...images, ...images] : []
+//   // duplicate the images to create a seamless loop
+//   const doubled = images && images.length ? [...images, ...images] : []
 
-  useEffect(() => {
-    const el = containerRef.current
-    if (!el || !images || images.length === 0) return
+//   useEffect(() => {
+//     const el = containerRef.current
+//     if (!el || !images || images.length === 0) return
 
-    let rafId
-    const speed = 0.5 // px per frame approx
+//     let rafId
+//     const speed = 0.5 // px per frame approx
 
-    const step = () => {
-      if (isAuto) {
-        // scroll and wrap when we've reached half (the duplicated boundary)
-        el.scrollLeft += speed
-        if (el.scrollLeft >= el.scrollWidth / 2) {
-          el.scrollLeft = 0
-        }
-      }
-      rafId = requestAnimationFrame(step)
-    }
+//     const step = () => {
+//       if (isAuto) {
+//         // scroll and wrap when we've reached half (the duplicated boundary)
+//         el.scrollLeft += speed
+//         if (el.scrollLeft >= el.scrollWidth / 2) {
+//           el.scrollLeft = 0
+//         }
+//       }
+//       rafId = requestAnimationFrame(step)
+//     }
 
-    rafId = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(rafId)
-  }, [images, isAuto])
+//     rafId = requestAnimationFrame(step)
+//     return () => cancelAnimationFrame(rafId)
+//   }, [images, isAuto])
 
-  if (!images || images.length === 0) return null
+//   if (!images || images.length === 0) return null
 
-  return (
-    <div className={styles.galleryWrap}>
-      <div
-        className={styles.carousel}
-        ref={containerRef}
-        onMouseEnter={() => setIsAuto(false)}
-        onMouseLeave={() => setIsAuto(true)}
-        role="list"
-      >
-        {doubled.map((img, i) => (
-          <div
-            key={`${i}-${img}`}
-            role="listitem"
-            className={styles.card}
-            style={{ backgroundImage: `url(${img})` }}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div className={styles.galleryWrap}>
+//       <div
+//         className={styles.carousel}
+//         ref={containerRef}
+//         onMouseEnter={() => setIsAuto(false)}
+//         onMouseLeave={() => setIsAuto(true)}
+//         role="list"
+//       >
+//         {doubled.map((img, i) => (
+//           <div
+//             key={`${i}-${img}`}
+//             role="listitem"
+//             className={styles.card}
+//             style={{ backgroundImage: `url(${img})` }}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   )
+// }
 
 const Testimonials = ({ items = [] }) => {
   const [idx, setIdx] = useState(0)
@@ -232,7 +232,7 @@ const EventDetail = ({}) => {
 
       <SponsorsRow sponsors={sponsors} />
 
-      <ThreeDGallery images={images} />
+      {/* <ThreeDGallery images={images} /> */}
 
       <Testimonials items={testimonials} />
 

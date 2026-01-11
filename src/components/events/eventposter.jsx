@@ -31,8 +31,8 @@ const LiveEventComponent = () => {
           const firstTwoPosters = data.events
             .slice(0, 2)
             .map((event) => event.poster);
-
-          setEventData(firstTwoPosters[0].images);
+          
+          setEventData(firstTwoPosters[0]);
         } else {
           console.log("No data received");
         }

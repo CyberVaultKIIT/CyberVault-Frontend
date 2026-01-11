@@ -87,24 +87,25 @@
 }
 
 .founderSection {
+  /* Mobile-first founder section: compact by default, expands on larger viewports */
   background: linear-gradient(
     180deg,
     rgba(35, 51, 35, 0.9) 29.17%,
     rgba(1, 60, 1, 0.9) 100%
   );
-
-  border-radius: 2.5rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  margin-bottom: 8rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  height: 42rem;
-  box-shadow: inset 0 0 3rem rgba(255, 255, 255, 0.5);
-
-  padding: 4rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.25rem; /* mobile-friendly padding */
+  margin-bottom: 2.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0.8rem rgba(255, 255, 255, 0.12);
   text-align: center;
+  height: auto;
 }
 
 .founderTitle {
@@ -129,11 +130,17 @@
   font-size: 1.5rem;
   color: white;
   margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .cardSection {
+  /* Mobile-first: stack cards vertically with gap and horizontal padding */
   display: flex;
-  margin-top: 5rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+  align-items: center;
 }
 
 .infoCard {
@@ -194,6 +201,15 @@
     max-width: 42%;
   }
 
+  .founderSection {
+    border-radius: 2.5rem;
+    padding: 4rem;
+    margin-bottom: 8rem;
+    height: 42rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 3rem rgba(255, 255, 255, 0.5);
+  }
+
   .layout1 {
     width: 15%;
     height: 30%;
@@ -231,7 +247,7 @@
     box-shadow: inset 0 0 1rem rgba(255, 255, 255, 0.5);
     height: 35rem;
     margin-bottom: 5em;
-    padding-bottom: 0em;
+    padding-bottom: 1em;
   }
   .header {
     font-size: 1.5rem;
