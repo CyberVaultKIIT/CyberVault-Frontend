@@ -23,8 +23,7 @@ FROM nginx:stable-alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy build from previous stage
-COPY --from=build /app/build /usr/share/nginx/html
-
+COPY COPY --from=builder /app/dist /usr/share/nginx/html
 # Expose HTTP port
 EXPOSE 80
 
