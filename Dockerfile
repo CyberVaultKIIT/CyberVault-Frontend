@@ -1,31 +1,32 @@
+# 1. Build stage
+FROM node:22-alpine AS builder
 
-FROM node:22-alpine AS build
-
+# Set working directory
 WORKDIR /app
 
+# Copy package files
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies (including dev deps so that vite is available)
 RUN npm install
 
-# Copy the rest of the app
+# Copy source code
 COPY . .
 
-# Build the optimized production files
+# Build the app (vite will output to /app/dist)
 RUN npm run build
 
-# -------------------------------
-# Stage 2: Serve with NGINX
-# -------------------------------
+# 2. Serve with nginx
 FROM nginx:stable-alpine
 
-# Remove default static assets
+# Remove default HTML
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy build from previous stage
-COPY COPY --from=builder /app/dist /usr/share/nginx/html
-# Expose HTTP port
+# Copy the build from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expose port 80
 EXPOSE 80
 
-# Start NGINX in foreground
+# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
